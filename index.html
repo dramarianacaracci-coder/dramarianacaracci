@@ -741,9 +741,9 @@ footer {
                   placeholder="Me conta o que você precisa…"></textarea>
       </div>
 
-      <button class="btn-submit">
-        Enviar mensagem
-      </button>
+      <button class="btn-submit" onclick="sendToWhatsApp()">
+  Enviar mensagem
+</button>
 
     </div>
 
@@ -770,7 +770,31 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
+function sendToWhatsApp() {
 
+  const nome = document.querySelectorAll('.form-input')[0].value;
+  const contato = document.querySelectorAll('.form-input')[1].value;
+  const mensagem = document.querySelector('.form-textarea').value;
+
+  if (!nome.trim()) {
+    alert('Por favor, preencha seu nome.');
+    return;
+  }
+
+  const texto =
+`Olá! Me chamo ${nome}
+
+Contato: ${contato}
+
+Mensagem:
+${mensagem}`;
+
+  const numero = '5522992551858';
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+  window.open(url, '_blank');
+}
 </script>
 
 </body>
