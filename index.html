@@ -796,6 +796,30 @@ ${mensagem}`;
   window.open(url, '_blank');
 }
 </script>
+<!-- Banner de Cookies LGPD -->
+<div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; z-index: 9999; border-left: 5px solid #004d40;">
+    <p style="margin: 0; font-size: 14px; color: #555; max-width: 80%; font-family: Arial, sans-serif;">
+        Utilizamos cookies para personalizar anúncios e melhorar sua experiência no site da Dra. Mariana Caracci. Ao continuar navegando, você concorda com a nossa <a href="privacy-policy.html" style="color: #004d40; font-weight: bold; text-decoration: underline;">Política de Privacidade</a>.
+    </p>
+    <button onclick="aceitarCookies()" style="background: #004d40; color: #fff; border: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 14px; transition: 0.2s;">
+        Aceitar
+    </button>
+</div>
 
+<script>
+    // Verifica de forma segura se o usuário já aceitou os cookies após carregar o HTML
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem("cookiesAceitos") === "true") {
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    });
+
+    // Esconde o banner e grava a decisão do paciente no navegador
+    function aceitarCookies() {
+        localStorage.setItem("cookiesAceitos", "true");
+        document.getElementById("cookie-banner").style.display = "none";
+    }
+</script>
+  
 </body>
 </html>
