@@ -671,9 +671,14 @@ footer {
           <span class="contato-label">WhatsApp</span>
 
           <span class="contato-value">
-            <a href="https://wa.me/5522992278235">
-              (22) 99227-8235
-            </a>
+           <a href="https://wa.me/5522992278235"
+   onclick="gtag('event', 'conversion', {
+      'send_to': 'AW-18200539027/udFGCL_l9bccEJPf2OZD',
+      'value': 1.0,
+      'currency': 'BRL'
+   });">
+  (22) 99227-8235
+</a>
           </span>
         </div>
 
@@ -779,6 +784,7 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
+
 function sendToWhatsApp() {
 
   const nome = document.querySelectorAll('.form-input')[0].value;
@@ -802,8 +808,16 @@ ${mensagem}`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 
+  // Conversão Google Ads
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18200539027/udFGCL_l9bccEJPf2OZD',
+    'value': 1.0,
+    'currency': 'BRL'
+  });
+
   window.open(url, '_blank');
 }
+
 </script>
 <!-- Banner de Cookies LGPD -->
 <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; z-index: 9999; border-left: 5px solid #004d40;">
